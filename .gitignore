@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+buy_sell_particles/
+captured_pics/
+test_pics/
 # Distribution / packaging
 .Python
 build/
