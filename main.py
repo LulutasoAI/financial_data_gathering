@@ -34,7 +34,8 @@ def test_main():
     result2 = visual_process.read_pic(test_image_path_sell)
     visual_process.easyocr_result_interpreter(result1)
     visual_process.easyocr_result_interpreter(result2)
-    Screen_Capture().crop_captured()
+    Screen_Capture().crop_captured(coordinates_buy)
+    Screen_Capture().crop_captured(coordinates_sell)
     """
     GUI_func.click_pic(sell_image_path)
     time.sleep(3)
