@@ -5,7 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
-
+pic_to_extract/
 buy_sell_particles/
 captured_pics/
 test_pics/

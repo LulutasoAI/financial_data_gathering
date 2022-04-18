@@ -26,16 +26,18 @@ class Screen_Capture:
         image = Image.open(image_path)
         w,h = image.size
         x,y = xy
-        x_adjustment_left = w *0.03 
-        y_adjustment_top  = h *0.03
-        x_ajdustment_right = w* 0.1
-        y_adjustment_lower = h*0.1
+        x_adjustment_left = -w *0.002
+        y_adjustment_top  = h *0.01
+        x_ajdustment_right = w* 0.06
+        y_adjustment_lower = h*0.03
         left = x-x_adjustment_left
         top = y-y_adjustment_top
         right = x+x_ajdustment_right
         lower = y+y_adjustment_lower
         image = image.crop((left,top,right,lower))
-        image.show()
+        #image.show()
+        return image
         
-        
+    def save_image(self,image:Image, path_to_save:str) -> None:
+        image.save(path_to_save)
     
