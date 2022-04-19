@@ -1,8 +1,10 @@
 import os 
 import time
 
+from numpy import record
+
 import gui_related
-import num_to_record
+from num_to_record import Recorder
 from screen_capture import Screen_Capture
 import utilities
 from visual_processing import Visual_Process
@@ -17,15 +19,16 @@ class Execute:
         call utilities for that.
         """
         utils = utilities.Utilities()
-        
+        self.config = Config_Reader().get_config()
         utils.create_folder("captured_pics")
         utils.create_folder("pic_to_extract")
         utils.create_folder("buy_sell_particles")
+        self.csv_path = self.config["path"]["csv_path"]
 
     def main(self):
-        config = Config_Reader().get_config()
+        recorder = Recorder()
         screen_capture = Screen_Capture()
-        picture_save_path = config["path"]["captured_pics"]
+        picture_save_path = self.config["path"]["captured_pics"]
         path_data_picture = os.path.join("pic_to_extract","data.png")
         screen_capture.capture(picture_save_path)
         GUI_func = GUI_functions()
@@ -41,6 +44,7 @@ class Execute:
         price = visual_process.easyocr_result_interpreter(result1)
         print(price)
         #visual_process.easyocr_result_interpreter(result2)
+        recorder.record(price,self.csv_path)
 
 
     def test_main(self):

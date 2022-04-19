@@ -13,8 +13,11 @@ class Visual_Process:
         return result
 
     def image_path_to_binary(self,image_path):
+        """
+        it does not properly work
+        """
         image = np.array(Image.open(image_path).convert('L'), 'f')
-        image = (image > 100) * 255
+        image = (image > 128) * 255
         return image
         
     def easyocr_result_interpreter(self, result:list):
