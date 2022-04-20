@@ -2,9 +2,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
-record.csv
+
 # C extensions
 *.so
+record.csv
 pic_to_extract/
 buy_sell_particles/
 captured_pics/

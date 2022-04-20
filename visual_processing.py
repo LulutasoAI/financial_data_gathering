@@ -30,6 +30,7 @@ class Visual_Process:
             extracted_text = information[string_access_enum]
             price += extracted_text
         try:
+            price = price.replace("_",".")
             float(price)
             return price
         except:
