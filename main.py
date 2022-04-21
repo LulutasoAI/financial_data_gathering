@@ -82,4 +82,7 @@ class Execute:
 
 
 if __name__ == "__main__":
-    Execute().main()
+    executer = Execute()
+    while True:
+        executer.main()
+        time.sleep(60)
